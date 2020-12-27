@@ -1,0 +1,328 @@
+---
+title: "Informe Técnico de Avance Núm. 7"
+---
+
+```{r}
+library(reticulate)
+use_condaenv("r-reticulate")
+```
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+```{python}
+df = pd.read_pickle('ITA_7.pkl')
+df.info()
+```
+
+# Datos personales
+## Edad
+```{python}
+df['edad'].describe().round()
+sns.histplot(x='edad', data=df)
+plt.xlabel('Edad, en años')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Procedencia
+Las 10 ciudades de procedencia más frecuentes
+```{python}
+df['ciudad'].value_counts().head(10)
+```
+
+# Datos antropométricos
+## Peso, en Kg
+```{python}
+df['peso'].describe().round()
+sns.histplot(x='peso', data=df, edgecolor='black')
+plt.xlabel('Peso corporal, en Kg')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Talla, en cm
+```{python}
+df['estatura'].describe().round()
+sns.histplot(x='estatura', data=df, edgecolor='black')
+plt.xlabel('Talla corporal, en cm')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Índice de masa corporal
+```{python}
+df['imc'] = df['peso']/(df['estatura']/100)**2
+df['imc'].describe().round()
+sns.histplot(x='imc', data=df, edgecolor='black')
+plt.xlabel('Índice de masa corporal')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+# Antecedentes patológicos
+## Hipertensión arterial
+```{python}
+var = 'hta'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Hipertensión arterial')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Diabetes mellitus
+```{python}
+var = 'dm'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Diabetes mellitus')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Tumor no prostático
+## Hipertensión arterial
+```{python}
+var = 'tumor'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Antecedente de tumor no prostático')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Tipo de tumor no prostático
+```{python}
+df['tumor_tipo'].value_counts()
+```
+
+## Hiperplasia prostática
+```{python}
+var = 'hp'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Antecedente de hiperplasia prostática')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Cáncer de próstata familiar
+```{python}
+var = 'tumor_fam'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Antecedente de cáncer de próstata en la familia')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Familiar con cáncer de próstata
+```{python}
+var = 'tumor_fam_tipo'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Familiar con cáncer de próstata')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+# Hábitos personales
+## Consumo de tabaco
+```{python}
+var = 'tabaco'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Consumo de tabaco (cigarrillos)')
+plt.ylabel('Núm. pacientes')
+plt.show()
+
+var = 'tabaco_cantidad'
+df[var].describe().round()
+sns.histplot(x=var, data=df)
+plt.xlabel('Cantidad de cigarrillos/semana')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Consumo de carne
+```{python}
+var = 'carne'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Consumo de carne')
+plt.ylabel('Núm. pacientes')
+plt.show()
+
+var = 'carne_frec'
+df[var].describe().round()
+sns.histplot(x=var, data=df)
+plt.xlabel('Consumo de carne/semana')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Consumo de frutas/verduras
+```{python}
+var = 'verdura'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Consumo de frutas y verduras')
+plt.ylabel('Núm. pacientes')
+plt.show()
+
+var = 'verdura_frec'
+df[var].describe().round()
+sns.histplot(x=var, data=df)
+plt.xlabel('Consumo de frutas y verduras/semana')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Actividad física
+```{python}
+var = 'ejercicio'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Realización de ejercicios físicos')
+plt.ylabel('Núm. pacientes')
+plt.show()
+
+var = 'ejercicio_frec'
+df[var].describe().round()
+sns.histplot(x=var, data=df)
+plt.xlabel('Realización de ejercicios físicos/semana')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+# Síntomas urinarios
+## Dificultad para empezar a orinar
+```{python}
+var = 'miccion_inicio'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Dificultad para iniciar la micción')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Chorro de orina lento o débil
+```{python}
+var = 'miccion_lenta'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Chorro de orina lento o débil')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Orinar frecuentemente (>10 veces/día)
+```{python}
+var = 'miccion_frec'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Orinar frecuentemente (>10 veces/día)')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Nicturia
+```{python}
+var = 'nicturia'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Nicturia')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Hematuria
+```{python}
+var = 'hematuria'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Hematuria')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Dolor lumbar bajo
+```{python}
+var = 'dolor_oseo'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Dolor en la región lumbar baja')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+# Antígeno prostático específico
+## Valor sérico, en mg/dL
+```{python}
+var = 'psa_valor'
+df[var].describe().round(2)
+sns.histplot(x=var, data=df, binwidth=0.5)
+plt.xlabel('PSA sérico, en mg/dL')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Categoría diagnóstica
+```{python}
+var = 'psa_categoria'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black', order=df['psa_categoria'].value_counts(sort=False).index)
+plt.xlabel('Categoría diagnóstica de PSA')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+# Biopsia prostática
+## Biopsias realizadas
+```{python}
+var = 'bx'
+df[var].value_counts()
+df[var].value_counts(normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Biopsia prostática realizada')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```
+
+## Diagnóstico de las biopsias
+```{python}
+
+df['bx_categoria'].replace({'Proceso inflamatorio/hiperplásico':'Inflamatorio/hiperplásico','Proceso neoplásico maligno':'Neoplásico maligno','Proceso preneoplásico':'Preneoplásico'}, inplace=True)
+df['bx_categoria'] = df['bx_categoria'].astype('category')
+df['bx_categoria'].cat.reorder_categories(['Inflamatorio/hiperplásico','Preneoplásico','Neoplásico maligno'], inplace=True)
+
+var = 'bx_categoria'
+df[var].value_counts(sort=False)
+df[var].value_counts(sort=False, normalize=True).round(2)
+sns.countplot(x=var, data=df, edgecolor='black')
+plt.xlabel('Diagnóstico de las biopsias')
+plt.ylabel('Núm. pacientes')
+plt.show()
+```

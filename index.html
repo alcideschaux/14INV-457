@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Protocolo</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 61px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h2 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h3 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h4 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h5 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h6 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">14INV-457</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Protocolo</a>
+</li>
+<li>
+  <a href="ITA_7.html">Resultados</a>
+</li>
+<li>
+  <a href="evidencias.html">Evidencias</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Protocolo</h1>
+
+</div>
+
+
+<div id="descripción" class="section level2">
+<h2>Descripción</h2>
+<p>Este documento describe el protocolo a seguir para la ejecución del “Programa de Diagnóstico Precoz del Cáncer de Próstata”, gestionado por la Dirección de Investigación &amp; Divulgación Científica de la Universidad del Norte. El Programa se ejecuta dentro del <em>Programa Paraguayo para el Desarrollo de la Ciencia y la Tecnología</em> (PROCIENCIA), Proyecto 14-INV-457, con fondos adjudicados por el <em>Consejo Nacional de Ciencia y Tecnología</em> (CONACYT) de la República del Paraguay según Resolución Nº 437/2014.</p>
+<hr />
+</div>
+<div id="objetivos" class="section level2">
+<h2>Objetivos</h2>
+<div id="objetivos-principales" class="section level3">
+<h3>Objetivos principales</h3>
+<p>Los objetivos principales de este proyecto pueden agruparse en 2 ejes:</p>
+<ul>
+<li>Detectar lesiones preneoplásicas y neoplásicas precoces de la próstata en hombres de &gt; 40 años de edad.</li>
+<li>Derivar a centros hospitalarios de mayor complejidad a aquellos pacientes que presenten lesiones neoplásicas que ameriten alguna intervención terapéutica. A largo plazo, el objetivo principal del programa es reducir la mortalidad del cáncer de próstata.</li>
+</ul>
+</div>
+<div id="objetivos-principales-específicos" class="section level3">
+<h3>Objetivos principales específicos</h3>
+<p>Los objetivos específicos de este proyecto pueden agruparse en 3 ejes:</p>
+<ul>
+<li>Detectar pacientes en riesgo de presentar lesiones neoplásicas de la próstata utilizando la determinación sérica del antígeno prostático específco (PSA).</li>
+<li>Determinar si el paciente en riesgo presenta alguna lesión preneoplásica o neoplásica de la próstata mediante una biopsia con aguja fina guiada por ecografía.</li>
+<li>Derivar a otros centros hospitalarios aquellos pacientes que requieran intervenciones terapéuticas, con todos sus datos clínicos, laboratoriales, y diagnósticos.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="antecedentes" class="section level2">
+<h2>Antecedentes</h2>
+<p>El cáncer de próstata es el tumor más frecuente en los hombres, estando su mortalidad directamente relacionada con el estadio de diseminación tumoral en el que se encuentra al momento del diagnóstico. Pacientes con tumores diseminados tienen menos chances de sobrevida a mediano y largo plazo comparados con pacientes con tumores localizados. Por lo tanto, una de las mejores estrategias para disminuir la mortalidad por cáncer de próstata es detectar precozmente las lesiones prostáticas, cuando aún no se han manifestado clínicamente. Eso plantea el problema de cómo detectar estas lesiones precoces, considerando que la próstata no es clínicamente accesible de manera directa.</p>
+<p>Una de las medidas disponibles para detectar lesiones neoplásicas de la próstata es la determinación en sangre del antígeno prostático específico (PSA, por sus siglas en inglés “prostatic specific antigen”). El PSA es producido por las células epiteliales de la próstata y sus niveles en sangre aumentan en condiciones en las cuales aumenta el número de estas células epiteliales. Esto hace que el PSA se pueda encontrar elevado tanto en condiciones no tumorales (v.g., hiperplasia prostática) como tumorales (v.g., cáncer de próstata). De ahí que sean necesarias otras medidas para confirmar el diagnóstico sugerido por la elevación del PSA.</p>
+<p>En este contexto, la biopsia de próstata con aguja fina ofrece el mayor costo-beneficio, ya que permite obtener tejido prostático para su examinación histológica a través de un procedimiento quirúrgico relativamente sencillo y con baja probabilidad de complicaciones significativas.</p>
+<p>Sin embargo, los costos asociados con la determinación sérica del PSA hacen dificultoso que pacientes de escasos recursos puedan acceder a esta opción diagnóstica. Esto es más cierto aún para las biopsias de próstata y los costos asociados con el diagnóstico anatomopatológico, los que hacen prohibitiva esta opción para pacientes socialmente menos favorecidos.</p>
+<p>De ahí que en pacientes de escasos recursos se llegue al diagnóstico de cáncer de próstata sólo cuando el tumor ya se encuentra diseminado y las opciones de curación son prácticamente nulas. Todo este cuadro se complica por la ausencia de un programa formal de detección de cáncer de próstata por parte del Ministerio de Salud Pública y Bienestar Social.</p>
+<p>Con el fin de detectar precozmente las lesiones neoplásicas de la próstata y contribuir a la disminución de la mortalidad asociada al cáncer de próstata lanzamos el “Programa de Diagnóstico Precoz del Cáncer de Próstata” de la Universidad del Norte. Mediante este Programa pacientes de escasos recursos podrán acceder gratuitamente a determinaciones séricas de PSA, hechas con el fin de identificar individuos con PSA elevado y en riesgo de presentar lesiones neoplásicas de la próstata.</p>
+<p>A su vez, este Programa ofrecerá a estos pacientes en riesgo la posibilidad de realizarse una biopsia con aguja fina de próstata y diagnóstico anatomopatológico, con el fin de determinar la presencia de lesiones neoplásicas prostáticas. Finalmente, ofrecerá guía para aquellos pacientes que requieran intervenciones quirúrgicas, derivándolos a otros centros hospitalarios de mayor complejidad, con todo su historial clínico, resultados laboratoriales, y diagnósticos anatomopatológicos.</p>
+<hr />
+</div>
+<div id="marco-teórico" class="section level2">
+<h2>Marco teórico</h2>
+<p>En hombres el cáncer de próstata es el tumor maligno no dermatológico más frecuente y la segunda causa de muerte por cáncer después del cáncer de pulmón. La incidencia a nivel mundial varía considerablemente entre distintos países, probablemente debido a la variable adopción de campañas de diagnóstico precoz.<span class="citation"><sup>1</sup></span></p>
+<p>El cáncer de próstata representa aproximadamente el 12% de todos los cánceres nuevos a nivel mundial, con una incidencia del 19% en países desarrollados y de 5% en países en vías de desarrollo. Diferentes explicaciones pueden darse para las marcadas diferencias observadas en la incidencia del cáncer de próstata a nivel mundial, incluyendo diferencias en susceptibilidades genéticas, exposición a carcinógenos ambientales, y acceso a sistemas sanitarios de calidad, además de diferencias en el diagnóstico correcto e informe apropiado de los casos de cáncer.</p>
+<p>Debido a que la incidencia se relaciona estrechamente con la intensidad de la actividad diagnóstica, en los países con programas de diagnóstico precoz la incidencia es “mayor”. Sin embargo, la verdadera carga de los casos latentes en poblaciones no estudiadas es desconocida. Como es lastimosamente habitual, no existen datos acerca de la incidencia de cáncer de próstata en el Paraguay.<span class="citation"><sup>2</sup></span> Esto es consecuencia de un fallo a nivel nacional en la implementación de programas de diagnóstico precoz y seguimiento del cáncer de próstata.</p>
+<p>El cáncer de próstata es principalmente una enfermedad de hombres de más de 65 años, con una edad promedio de diagnóstico de 67 años de edad.<span class="citation"><sup>1</sup></span> La incidencia aumenta en hombres entre 70 y 74 años, con más de 35% de todos los casos entre 65 y 74 años de edad, y 85% de todos los casos diagnosticados después de los 65 años.<span class="citation"><sup>1</sup></span> Estudios previos han definido que casi 1 de cada 6 hombres (16.2%) serán diagnosticados con cáncer de próstata durante su vida, incrementándose este riesgo a medida que aumenta la edad.</p>
+<p>La historia natural del cáncer de próstata es particularmente heterogénea, yendo desde tumores clínicamente silenciosos nunca destinados a afectar significativamente al paciente hasta tumores agresivos, metastásicos, que causan considerable morbilidad y matan al paciente. Al igual que con las tendencias de incidencia, existen variaciones significativas a nivel mundial en las tendencias de mortalidad causadas por el cáncer de próstata. Sin embargo, desde el uso de la determinación del PSA la mortalidad ha disminuido en los países desarrollados, probablemente como consecuencia del diagnóstico precoz de la enfermedad.<span class="citation"><sup>3</sup></span> La determinación del PSA como herramienta diagnóstica se ha asociado con cambios en el estadio clínico del tumor así como con una reducción en la mortalidad e incidencia de cáncer de próstata metastásico.<span class="citation"><sup>4,5</sup></span></p>
+<p>Tomando en cuenta los datos presentados, la implementación de un “Programa de Diagnóstico Precoz del Cáncer de Próstata” es necesaria para intentar disminuir la incidencia y mortalidad del cáncer de próstata en la población paraguaya. A pesar de que la determinación del PSA para este fin ha sido controversial, actualmente no disponemos en nuestro país de un mejor método. Este Programa pretende iniciar una línea de investigación en cáncer de próstata, creando una base de datos y banco de tejidos que podrán ser utilizados para incrementar el conocimiento acerca de la enfermedad y buscar mejores opciones diagnósticas y terapéuticas para los pacientes con cáncer de próstata.</p>
+<hr />
+</div>
+<div id="plan-de-trabajo" class="section level2">
+<h2>Plan de trabajo</h2>
+<p>El tiempo de duración del Programa es de 12 meses, desde julio de 2015 a junio de 2016. A partir del inicio del Programa se procederá al desarrollo de todas las fases descritas a continuación, trabajando en el Policlínico y la DIDCI de la Universidad del Norte. Se espera reclutar 500 pacientes y medir el PSA en todos ellos. Se estima que 100 pacientes mostrarán PSA elevado, requiriéndose una biopsia de próstata para un mejor diagnóstico.</p>
+<p>El proyecto estará dividido en 4 fases: promoción, recolección de datos, análisis de datos, y divulgación de resultados.</p>
+<div id="promoción" class="section level3">
+<h3>Promoción</h3>
+<p>El Programa se iniciará con la promoción del mismo a través de medios de difusión masiva de la información, ya sean impresos (v.g., diarios, revistas), radiales o digitales (v.g., redes sociales). El objetivo de esta promoción será el de informar suficientemente a la comunidad de la disponibilidad de los servicios ofrecidos por el Programa, enfatizando la gratuidad del mismo. La promoción del Programa continuará a lo largo de la fase de recolección de datos.</p>
+</div>
+<div id="recolección-de-datos" class="section level3">
+<h3>Recolección de datos</h3>
+<p>La fase de recolección de datos constará de hasta 5 etapas, y tendrá como objetivo recolectar los datos necesarios para satisfacer los objetivos de Programa. Las etapas de esta fase se describen a continuación.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Primera entrevista y toma de muestra de sangre:</strong> La recolección de datos se iniciará con una entrevista, llevada a cabo por el equipo de investigadores, en la que se le explicará al paciente el propósito de programa y los distintos procedimientos que se llevarán a cabo. Se obtendrá también su consentimiento informado por escrito para la inclusión del mismo en el Programa. Posteriormente se remitirá al paciente para la determinación del PSA en sangre a un Laboratorio de Diagnósticos Médicos (tercerizado) debidamente habilitado y certificado.</li>
+<li><strong>Determinación de PSA en sangre:</strong> El Laboratorio procederá a la determinación de PSA en la muestra. Tras la determinación de PSA el Laboratorio remitirá el informe correspondiente a la Dirección del Policlínico. Este informe laboratorial pasará a formar parte del historial clínico del paciente.</li>
+<li><strong>Segunda entrevista y evolución del caso:</strong> Una vez determinada la concentración de PSA en sangre se agendará una 2º entrevista con el paciente para recibir los resultados del informe laboratorial. En el caso de que los niveles de PSA se encuentren dentro de rangos normales se le indicará al paciente que la siguiente determinación deberá realizarse recién dentro de 12 meses. En el caso de que los niveles de PSA se encuentren elevados se le indicará al paciente la conveniencia de realizarse una biopsia de próstata para un mejor diagnóstico de la condición, o la necesidad de repetir la determinación del PSA dentro de los siguientes 3-6 meses. En el caso de que el paciente acepte la biopsia de próstata se pasará a la siguiente etapa del programa. En el caso de que el paciente opte por una nueva determinación del PSA, se repetirá el procedimiento anterior.</li>
+<li><strong>Biopsia de próstata bajo pantalla ecográfica:</strong> Se remitirá al paciente a un Centro Médico (tercerizado) especializado, debidamente habilitado y certificado, en el que se procederá a la biopsia de próstata bajo pantalla ecográfica. El profesional médico remitirá las muestras de tejido a la Dirección del Policlínico UniNorte. El procesamiento inicial de la lesión (examinación macroscópica y fijación en formol al 10%) será llevado a cabo por el equipo de investigadores. Posteriormente, se remitirán las muestras tisulares para la obtención de las láminas histológicas correspondientes al procesamiento del material a un Laboratorio de Anatomía Patológica (tercerizado) debidamente habilitado y certificado. La biopsia de próstata será evaluada por el Investigador Principal y los resultados discutidos con el equipo de investigadores. Una vez finalizada la evaluación de la biopsia se procederá a la redacción del informe anatomopatológico.</li>
+<li><strong>Tercera entrevista y evolución del caso:</strong> Una vez hecho el diagnóstico anatomopatológico se agendará una 3º entrevista con los pacientes que han presentado PSA elevado. En dicha consulta se informará al paciente de los resultados de la biopsia y se establecerá la conducta a seguir. En el caso de que el paciente no presente lesiones preneoplásicas o neoplásicas en la biopsia se le indicará que la siguiente determinación de PSA deberá realizarse recién dentro de 12 meses. En el caso de que el paciente presente una lesión preneoplásica de alto grado se le indicará que la siguiente determinación de PSA deberá realizarse dentro de 6 meses. En el caso de que el paciente presente una lesión neoplásica se derivará al paciente a un centro médico de mayor complejidad, entregándole una copia de toda su Historia Clínica, junto con sus resultados laboratoriales e informes anatomopatológicos.</li>
+</ol>
+</div>
+<div id="análisis-de-datos" class="section level3">
+<h3>Análisis de datos</h3>
+<p>En la fase de análisis de datos se procederá a la creación de una base de datos conteniendo toda la información recolectada. El análisis de los datos se realizará con R sobre la base de datos prolija. Todos los resultados serán almacenados en un repositorio online internacional.</p>
+</div>
+<div id="divulgación-de-resultados" class="section level3">
+<h3>Divulgación de resultados</h3>
+<p>En la fase de divulgación de resultados se procederá a la redacción del informe de investigación, el que se utilizará para generar materiales informativos para la comunidad académica y el público en general. También se redactará al menos un artículo de investigación, el que será enviado para publicación en una revista científica.</p>
+<hr />
+</div>
+</div>
+<div id="relevancia" class="section level2">
+<h2>Relevancia</h2>
+<div id="relevancia-social" class="section level3">
+<h3>Relevancia social</h3>
+<p>Este “Programa de Diagnóstico Precoz del Cáncer de Próstata” permitirá que pacientes de escasos recursos económicos puedan recibir un diagnóstico oportuno y gratuito, incluyendo desde la determinación del PSA sérico hasta el diagnóstico anatomopatológico de las biopsias de próstata, de considerarse necesario. Socialmente, este Programa permitirá a largo plazo la reducción de la mortalidad del cáncer de próstata al identificar lesiones neoplásicas incipientes, enfocándose en la población más desprotegida. Este Programa pretende además paliar el hecho de que no existen programas de diagnóstico precoz del cáncer de próstata ejecutados por entidades públicas. De esta manera, se obtendrá una mayor inclusión social de los pacientes en programas de prevención del cáncer.</p>
+</div>
+<div id="relevancia-científica" class="section level3">
+<h3>Relevancia científica</h3>
+<p>Este “Programa de Diagnóstico Precoz del Cáncer de Próstata” permitirá el establecimiento de una línea concreta de investigación en cáncer de próstata desde una Universidad privada. Este Programa permitirá asimismo el fortalecimiento en las capacidades de investigación y la gestión de conocimientos relevantes, ayudando a proteger, promocionar y restaurar la salud humana enfocándose en el diagnóstico precoz. Finalmente, el establecimiento de esta línea de investigación abrirá oportunidades para líneas de investigación paralelas que puedan utilizar el material generado (v.g., datos clínicos, muestras tisulares) para evaluar nuevas preguntas de investigación (v.g., factores pronósticos moleculares en cáncer de próstata).</p>
+</div>
+<div id="relevancia-contemporánea" class="section level3">
+<h3>Relevancia contemporánea</h3>
+<p>Este “Programa de Diagnóstico Precoz del Cáncer de Próstata” presenta trascendencia contemporánea al enfocarse en la implementación de medidas de diagnóstico precoz del cáncer de próstata, el tumor maligno más frecuente en hombres. Al enfocarse en el diagnóstico precoz este Programa se alinea con la tendencia actual de poner el énfasis en una asistencia sanitaria comunitaria más costo-efectiva. El diagnóstico del cáncer de próstata en etapas precoces no sólo permitirá disminuir la mortalidad asociada con la diseminación del tumor sino también permitirá un mejor manejo de los recursos disponibles, al generar menos costos de asistencia sanitaria.</p>
+<hr />
+</div>
+</div>
+<div id="estrategia-de-divulgación" class="section level2">
+<h2>Estrategia de divulgación</h2>
+<p>El “Programa de Diagnóstico Precoz del Cáncer de Próstata” permitirá evaluar independientemente los datos epidemiológicos acerca de la enfermedad proveídos por entidades gubernamentales y organizaciones internacionales. Mediante este Programa se generará información suficiente sobre una cohorte de 500 pacientes, cohorte que podrá ser seguida a mediano y largo plazo, con lo que se podrán obtener datos más precisos acerca de las características de la enfermedad en la población paraguaya. También permitirá crear conciencia a nivel social de la importancia de la detección precoz de las lesiones neoplásicas de próstata para evitar la aparición de lesiones más avanzadas y clínicamente agresivas.</p>
+<div id="estrategia-de-transferencia-de-conocimientos-a-los-beneficiarios-involucrados" class="section level3">
+<h3>Estrategia de transferencia de conocimientos a los beneficiarios involucrados</h3>
+<p>Mediante el “Programa de Diagnóstico Precoz del Cáncer de Próstata” los pacientes recibirán información apropiada y científicamente correcta acerca de la importancia y utilidad de la detección sérica de PSA y comprenderán la importancia de la confirmación diagnóstica mediante la biopsia de próstata. El equipo de Investigadores proveerá de materiales informativos, según conveniencia.</p>
+</div>
+<div id="plan-de-divulgación-de-resultados-a-la-sociedad" class="section level3">
+<h3>Plan de divulgación de resultados a la sociedad</h3>
+<p>Los resultados del “Programa de Diagnóstico Precoz del Cáncer de Próstata” serán divulgados mediante canales académicos y no académicos. En el ámbito académico, los resultados se divulgarán mediante Congresos y Simposios, ya sea organizados por la Universidad del Norte u otras instituciones académicas, y el reporte de investigación final será publicado en revistas especializadas. En el ámbito no académico, estos resultados se divulgarán al público en general mediante entrevistas radiales y televisivas, además de medios impresos y digitales, y redes sociales.</p>
+<hr />
+</div>
+</div>
+<div id="referencias" class="section level2 unnumbered">
+<h2>Referencias</h2>
+<div id="refs" class="references">
+<div id="ref-Howlader2015">
+<p>1. Howlader N, Noone A, Krapcho M, et al. SEER Cancer Statistics Review, 1975-2012. 2015. <a href="http://seer.cancer.gov/csr/1975\_2012/">http://seer.cancer.gov/csr/1975\_2012/</a>. Accessed May 4, 2015.</p>
+</div>
+<div id="ref-Forman2014">
+<p>2. Forman D, Bray F, Brewster D, et al. <em>Cancer Incidence in Five Continents, Vol. X (IARC Scientific Publication No. 164)</em>. Lyon: International Agency for Research on Cancer; 2014.</p>
+</div>
+<div id="ref-Baade2004">
+<p>3. Baade PD, Coory MD, Aitken JF. International trends in prostate-cancer mortality: the decrease is continuing and spreading. <em>Cancer Causes Control</em>. 2004;15(3):237-241. doi:<a href="https://doi.org/10.1023/B:CACO.0000024212.66334.26">10.1023/B:CACO.0000024212.66334.26</a>.</p>
+</div>
+<div id="ref-Schroder2009">
+<p>4. Schröder FH, Hugosson J, Roobol MJ, et al. Screening and prostate-cancer mortality in a randomized European study. <em>N Engl J Med</em>. 2009;360(13):1320-1328. doi:<a href="https://doi.org/10.1056/NEJMoa0810084">10.1056/NEJMoa0810084</a>.</p>
+</div>
+<div id="ref-Jhaveri1999">
+<p>5. Jhaveri FM, Klein EA, Kupelian PA, Zippe C, Levin HS. Declining rates of extracapsular extension after radical prostatectomy: evidence for continued stage migration. <em>J Clin Oncol</em>. 1999;17(10):3167-3172. <a href="http://www.ncbi.nlm.nih.gov/pubmed/10506614">http://www.ncbi.nlm.nih.gov/pubmed/10506614</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

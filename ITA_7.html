@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Informe Técnico de Avance Núm. 7</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 61px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h2 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h3 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h4 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h5 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h6 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">14INV-457</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Protocolo</a>
+</li>
+<li>
+  <a href="ITA_7.html">Resultados</a>
+</li>
+<li>
+  <a href="evidencias.html">Evidencias</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Informe Técnico de Avance Núm. 7</h1>
+
+</div>
+
+
+<pre class="r"><code>library(reticulate)
+use_condaenv(&quot;r-reticulate&quot;)</code></pre>
+<pre class="python"><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns</code></pre>
+<pre class="python"><code>df = pd.read_pickle(&#39;ITA_7.pkl&#39;)
+df.info()</code></pre>
+<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+## Int64Index: 294 entries, 0 to 564
+## Data columns (total 37 columns):
+##  #   Column           Non-Null Count  Dtype         
+## ---  ------           --------------  -----         
+##  0   id               294 non-null    int64         
+##  1   fecha_ingreso    294 non-null    datetime64[ns]
+##  2   ita              294 non-null    int64         
+##  3   edad             286 non-null    float64       
+##  4   ciudad           290 non-null    object        
+##  5   hta              287 non-null    object        
+##  6   dm               288 non-null    object        
+##  7   tumor            288 non-null    object        
+##  8   tumor_tipo       3 non-null      object        
+##  9   hp               288 non-null    object        
+##  10  tumor_fam        288 non-null    object        
+##  11  tumor_fam_tipo   39 non-null     object        
+##  12  peso             238 non-null    float64       
+##  13  estatura         238 non-null    float64       
+##  14  tabaco           289 non-null    object        
+##  15  tabaco_cantidad  265 non-null    float64       
+##  16  carne            290 non-null    object        
+##  17  carne_frec       261 non-null    float64       
+##  18  verdura          290 non-null    object        
+##  19  verdura_frec     258 non-null    float64       
+##  20  ejercicio        289 non-null    object        
+##  21  ejercicio_frec   263 non-null    float64       
+##  22  miccion_inicio   290 non-null    object        
+##  23  miccion_lenta    290 non-null    object        
+##  24  miccion_frec     290 non-null    object        
+##  25  nicturia         290 non-null    object        
+##  26  hematuria        290 non-null    object        
+##  27  dolor_oseo       290 non-null    object        
+##  28  psa_valor        294 non-null    float64       
+##  29  psa_limite       294 non-null    float64       
+##  30  psa_categoria    294 non-null    object        
+##  31  psa_indicacion   294 non-null    object        
+##  32  bx               294 non-null    object        
+##  33  bx_fecha         7 non-null      datetime64[ns]
+##  34  bx_dx            7 non-null      object        
+##  35  bx_categoria     7 non-null      object        
+##  36  bx_indicacion    7 non-null      object        
+## dtypes: datetime64[ns](2), float64(9), int64(2), object(24)
+## memory usage: 87.3+ KB</code></pre>
+<div id="datos-personales" class="section level1">
+<h1>Datos personales</h1>
+<div id="edad" class="section level2">
+<h2>Edad</h2>
+<pre class="python"><code>df[&#39;edad&#39;].describe().round()</code></pre>
+<pre><code>## count    286.0
+## mean      59.0
+## std       13.0
+## min       36.0
+## 25%       49.0
+## 50%       57.0
+## 75%       67.0
+## max       95.0
+## Name: edad, dtype: float64</code></pre>
+<pre class="python"><code>sns.histplot(x=&#39;edad&#39;, data=df)
+plt.xlabel(&#39;Edad, en años&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-4-1.png" /><!-- --></p>
+</div>
+<div id="procedencia" class="section level2">
+<h2>Procedencia</h2>
+<p>Las 10 ciudades de procedencia más frecuentes</p>
+<pre class="python"><code>df[&#39;ciudad&#39;].value_counts().head(10)</code></pre>
+<pre><code>## Asunción                94
+## Luque                   41
+## Capiatá                 18
+## San Lorenzo             18
+## Lambaré                 17
+## Ferndo de la Mora       14
+## Villa Elisa             13
+## Mariano Roque Alonso    12
+## Itá                     10
+## Ñemby                    7
+## Name: ciudad, dtype: int64</code></pre>
+</div>
+</div>
+<div id="datos-antropométricos" class="section level1">
+<h1>Datos antropométricos</h1>
+<div id="peso-en-kg" class="section level2">
+<h2>Peso, en Kg</h2>
+<pre class="python"><code>df[&#39;peso&#39;].describe().round()</code></pre>
+<pre><code>## count    238.0
+## mean      87.0
+## std       16.0
+## min       50.0
+## 25%       78.0
+## 50%       85.0
+## 75%       97.0
+## max      143.0
+## Name: peso, dtype: float64</code></pre>
+<pre class="python"><code>sns.histplot(x=&#39;peso&#39;, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Peso corporal, en Kg&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-6-1.png" /><!-- --></p>
+</div>
+<div id="talla-en-cm" class="section level2">
+<h2>Talla, en cm</h2>
+<pre class="python"><code>df[&#39;estatura&#39;].describe().round()</code></pre>
+<pre><code>## count    238.0
+## mean     172.0
+## std        7.0
+## min      150.0
+## 25%      168.0
+## 50%      172.0
+## 75%      178.0
+## max      198.0
+## Name: estatura, dtype: float64</code></pre>
+<pre class="python"><code>sns.histplot(x=&#39;estatura&#39;, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Talla corporal, en cm&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-7-1.png" /><!-- --></p>
+</div>
+<div id="índice-de-masa-corporal" class="section level2">
+<h2>Índice de masa corporal</h2>
+<pre class="python"><code>df[&#39;imc&#39;] = df[&#39;peso&#39;]/(df[&#39;estatura&#39;]/100)**2
+df[&#39;imc&#39;].describe().round()</code></pre>
+<pre><code>## count    236.0
+## mean      29.0
+## std        4.0
+## min       19.0
+## 25%       26.0
+## 50%       29.0
+## 75%       32.0
+## max       43.0
+## Name: imc, dtype: float64</code></pre>
+<pre class="python"><code>sns.histplot(x=&#39;imc&#39;, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Índice de masa corporal&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-8-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="antecedentes-patológicos" class="section level1">
+<h1>Antecedentes patológicos</h1>
+<div id="hipertensión-arterial" class="section level2">
+<h2>Hipertensión arterial</h2>
+<pre class="python"><code>var = &#39;hta&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    179
+## Sí    108
+## Name: hta, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.62
+## Sí    0.38
+## Name: hta, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Hipertensión arterial&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-9-1.png" /><!-- --></p>
+</div>
+<div id="diabetes-mellitus" class="section level2">
+<h2>Diabetes mellitus</h2>
+<pre class="python"><code>var = &#39;dm&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    257
+## Sí     31
+## Name: dm, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.89
+## Sí    0.11
+## Name: dm, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Diabetes mellitus&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-10-1.png" /><!-- --></p>
+</div>
+<div id="tumor-no-prostático" class="section level2">
+<h2>Tumor no prostático</h2>
+</div>
+<div id="hipertensión-arterial-1" class="section level2">
+<h2>Hipertensión arterial</h2>
+<pre class="python"><code>var = &#39;tumor&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    283
+## Sí      5
+## Name: tumor, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.98
+## Sí    0.02
+## Name: tumor, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Antecedente de tumor no prostático&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-11-1.png" /><!-- --></p>
+</div>
+<div id="tipo-de-tumor-no-prostático" class="section level2">
+<h2>Tipo de tumor no prostático</h2>
+<pre class="python"><code>df[&#39;tumor_tipo&#39;].value_counts()</code></pre>
+<pre><code>## Mieloma múltiple     1
+## Pólipos colónicos    1
+## Tiroides             1
+## Name: tumor_tipo, dtype: int64</code></pre>
+</div>
+<div id="hiperplasia-prostática" class="section level2">
+<h2>Hiperplasia prostática</h2>
+<pre class="python"><code>var = &#39;hp&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    264
+## Sí     24
+## Name: hp, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.92
+## Sí    0.08
+## Name: hp, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Antecedente de hiperplasia prostática&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-13-1.png" /><!-- --></p>
+</div>
+<div id="cáncer-de-próstata-familiar" class="section level2">
+<h2>Cáncer de próstata familiar</h2>
+<pre class="python"><code>var = &#39;tumor_fam&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    247
+## Sí     41
+## Name: tumor_fam, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.86
+## Sí    0.14
+## Name: tumor_fam, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Antecedente de cáncer de próstata en la familia&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-14-1.png" /><!-- --></p>
+</div>
+<div id="familiar-con-cáncer-de-próstata" class="section level2">
+<h2>Familiar con cáncer de próstata</h2>
+<pre class="python"><code>var = &#39;tumor_fam_tipo&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## Padre         27
+## Tío            4
+## Hermano        3
+## Abuelo         3
+## Primo          1
+## Tío abuelo     1
+## Name: tumor_fam_tipo, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## Padre         0.69
+## Tío           0.10
+## Hermano       0.08
+## Abuelo        0.08
+## Primo         0.03
+## Tío abuelo    0.03
+## Name: tumor_fam_tipo, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Familiar con cáncer de próstata&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-15-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="hábitos-personales" class="section level1">
+<h1>Hábitos personales</h1>
+<div id="consumo-de-tabaco" class="section level2">
+<h2>Consumo de tabaco</h2>
+<pre class="python"><code>var = &#39;tabaco&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    234
+## Sí     55
+## Name: tabaco, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.81
+## Sí    0.19
+## Name: tabaco, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Consumo de tabaco (cigarrillos)&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-16-1.png" /><!-- --></p>
+<pre class="python"><code>var = &#39;tabaco_cantidad&#39;
+df[var].describe().round()</code></pre>
+<pre><code>## count    265.0
+## mean       2.0
+## std        5.0
+## min        0.0
+## 25%        0.0
+## 50%        0.0
+## 75%        0.0
+## max       40.0
+## Name: tabaco_cantidad, dtype: float64</code></pre>
+<pre class="python"><code>sns.histplot(x=var, data=df)
+plt.xlabel(&#39;Cantidad de cigarrillos/semana&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-16-2.png" /><!-- --></p>
+</div>
+<div id="consumo-de-carne" class="section level2">
+<h2>Consumo de carne</h2>
+<pre class="python"><code>var = &#39;carne&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## Sí    282
+## No      8
+## Name: carne, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## Sí    0.97
+## No    0.03
+## Name: carne, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Consumo de carne&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-17-1.png" /><!-- --></p>
+<pre class="python"><code>var = &#39;carne_frec&#39;
+df[var].describe().round()</code></pre>
+<pre><code>## count    261.0
+## mean       4.0
+## std        2.0
+## min        0.0
+## 25%        2.0
+## 50%        3.0
+## 75%        5.0
+## max        7.0
+## Name: carne_frec, dtype: float64</code></pre>
+<pre class="python"><code>sns.histplot(x=var, data=df)
+plt.xlabel(&#39;Consumo de carne/semana&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-17-2.png" /><!-- --></p>
+</div>
+<div id="consumo-de-frutasverduras" class="section level2">
+<h2>Consumo de frutas/verduras</h2>
+<pre class="python"><code>var = &#39;verdura&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## Sí    282
+## No      8
+## Name: verdura, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## Sí    0.97
+## No    0.03
+## Name: verdura, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Consumo de frutas y verduras&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-18-1.png" /><!-- --></p>
+<pre class="python"><code>var = &#39;verdura_frec&#39;
+df[var].describe().round()</code></pre>
+<pre><code>## count    258.0
+## mean       5.0
+## std        2.0
+## min        0.0
+## 25%        3.0
+## 50%        5.0
+## 75%        7.0
+## max        7.0
+## Name: verdura_frec, dtype: float64</code></pre>
+<pre class="python"><code>sns.histplot(x=var, data=df)
+plt.xlabel(&#39;Consumo de frutas y verduras/semana&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-18-2.png" /><!-- --></p>
+</div>
+<div id="actividad-física" class="section level2">
+<h2>Actividad física</h2>
+<pre class="python"><code>var = &#39;ejercicio&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    148
+## Sí    141
+## Name: ejercicio, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.51
+## Sí    0.49
+## Name: ejercicio, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Realización de ejercicios físicos&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-19-1.png" /><!-- --></p>
+<pre class="python"><code>var = &#39;ejercicio_frec&#39;
+df[var].describe().round()</code></pre>
+<pre><code>## count    263.0
+## mean       2.0
+## std        2.0
+## min        0.0
+## 25%        0.0
+## 50%        0.0
+## 75%        3.0
+## max        7.0
+## Name: ejercicio_frec, dtype: float64</code></pre>
+<pre class="python"><code>sns.histplot(x=var, data=df)
+plt.xlabel(&#39;Realización de ejercicios físicos/semana&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-19-2.png" /><!-- --></p>
+</div>
+</div>
+<div id="síntomas-urinarios" class="section level1">
+<h1>Síntomas urinarios</h1>
+<div id="dificultad-para-empezar-a-orinar" class="section level2">
+<h2>Dificultad para empezar a orinar</h2>
+<pre class="python"><code>var = &#39;miccion_inicio&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    246
+## Sí     44
+## Name: miccion_inicio, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.85
+## Sí    0.15
+## Name: miccion_inicio, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Dificultad para iniciar la micción&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-20-1.png" /><!-- --></p>
+</div>
+<div id="chorro-de-orina-lento-o-débil" class="section level2">
+<h2>Chorro de orina lento o débil</h2>
+<pre class="python"><code>var = &#39;miccion_lenta&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    242
+## Sí     48
+## Name: miccion_lenta, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.83
+## Sí    0.17
+## Name: miccion_lenta, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Chorro de orina lento o débil&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-21-1.png" /><!-- --></p>
+</div>
+<div id="orinar-frecuentemente-10-vecesdía" class="section level2">
+<h2>Orinar frecuentemente (&gt;10 veces/día)</h2>
+<pre class="python"><code>var = &#39;miccion_frec&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    228
+## Sí     62
+## Name: miccion_frec, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.79
+## Sí    0.21
+## Name: miccion_frec, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Orinar frecuentemente (&gt;10 veces/día)&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-22-1.png" /><!-- --></p>
+</div>
+<div id="nicturia" class="section level2">
+<h2>Nicturia</h2>
+<pre class="python"><code>var = &#39;nicturia&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    202
+## Sí     88
+## Name: nicturia, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.7
+## Sí    0.3
+## Name: nicturia, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Nicturia&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-23-1.png" /><!-- --></p>
+</div>
+<div id="hematuria" class="section level2">
+<h2>Hematuria</h2>
+<pre class="python"><code>var = &#39;hematuria&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    289
+## Sí      1
+## Name: hematuria, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    1.0
+## Sí    0.0
+## Name: hematuria, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Hematuria&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-24-1.png" /><!-- --></p>
+</div>
+<div id="dolor-lumbar-bajo" class="section level2">
+<h2>Dolor lumbar bajo</h2>
+<pre class="python"><code>var = &#39;dolor_oseo&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    232
+## Sí     58
+## Name: dolor_oseo, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.8
+## Sí    0.2
+## Name: dolor_oseo, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Dolor en la región lumbar baja&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-25-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="antígeno-prostático-específico" class="section level1">
+<h1>Antígeno prostático específico</h1>
+<div id="valor-sérico-en-mgdl" class="section level2">
+<h2>Valor sérico, en mg/dL</h2>
+<pre class="python"><code>var = &#39;psa_valor&#39;
+df[var].describe().round(2)</code></pre>
+<pre><code>## count    294.00
+## mean       2.30
+## std        3.41
+## min        0.22
+## 25%        0.87
+## 50%        1.31
+## 75%        2.20
+## max       27.07
+## Name: psa_valor, dtype: float64</code></pre>
+<pre class="python"><code>sns.histplot(x=var, data=df, binwidth=0.5)
+plt.xlabel(&#39;PSA sérico, en mg/dL&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-26-1.png" /><!-- --></p>
+</div>
+<div id="categoría-diagnóstica" class="section level2">
+<h2>Categoría diagnóstica</h2>
+<pre class="python"><code>var = &#39;psa_categoria&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## En rango normal         267
+## Ligeramente elevado      17
+## Marcadamente elevado     10
+## Name: psa_categoria, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## En rango normal         0.91
+## Ligeramente elevado     0.06
+## Marcadamente elevado    0.03
+## Name: psa_categoria, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;, order=df[&#39;psa_categoria&#39;].value_counts(sort=False).index)
+plt.xlabel(&#39;Categoría diagnóstica de PSA&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-27-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="biopsia-prostática" class="section level1">
+<h1>Biopsia prostática</h1>
+<div id="biopsias-realizadas" class="section level2">
+<h2>Biopsias realizadas</h2>
+<pre class="python"><code>var = &#39;bx&#39;
+df[var].value_counts()</code></pre>
+<pre><code>## No    287
+## Sí      7
+## Name: bx, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(normalize=True).round(2)</code></pre>
+<pre><code>## No    0.98
+## Sí    0.02
+## Name: bx, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Biopsia prostática realizada&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-28-1.png" /><!-- --></p>
+</div>
+<div id="diagnóstico-de-las-biopsias" class="section level2">
+<h2>Diagnóstico de las biopsias</h2>
+<pre class="python"><code>
+df[&#39;bx_categoria&#39;].replace({&#39;Proceso inflamatorio/hiperplásico&#39;:&#39;Inflamatorio/hiperplásico&#39;,&#39;Proceso neoplásico maligno&#39;:&#39;Neoplásico maligno&#39;,&#39;Proceso preneoplásico&#39;:&#39;Preneoplásico&#39;}, inplace=True)
+df[&#39;bx_categoria&#39;] = df[&#39;bx_categoria&#39;].astype(&#39;category&#39;)
+df[&#39;bx_categoria&#39;].cat.reorder_categories([&#39;Inflamatorio/hiperplásico&#39;,&#39;Preneoplásico&#39;,&#39;Neoplásico maligno&#39;], inplace=True)
+
+var = &#39;bx_categoria&#39;
+df[var].value_counts(sort=False)</code></pre>
+<pre><code>## Inflamatorio/hiperplásico    4
+## Preneoplásico                1
+## Neoplásico maligno           2
+## Name: bx_categoria, dtype: int64</code></pre>
+<pre class="python"><code>df[var].value_counts(sort=False, normalize=True).round(2)</code></pre>
+<pre><code>## Inflamatorio/hiperplásico    0.57
+## Preneoplásico                0.14
+## Neoplásico maligno           0.29
+## Name: bx_categoria, dtype: float64</code></pre>
+<pre class="python"><code>sns.countplot(x=var, data=df, edgecolor=&#39;black&#39;)
+plt.xlabel(&#39;Diagnóstico de las biopsias&#39;)
+plt.ylabel(&#39;Núm. pacientes&#39;)
+plt.show()</code></pre>
+<p><img src="ITA_7_files/figure-html/unnamed-chunk-29-1.png" /><!-- --></p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

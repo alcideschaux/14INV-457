@@ -1,0 +1,13 @@
+---
+title: "Evidencias"
+---
+
+### [Evidencias de promoción](evidencias/Evidencias de promoción.pdf)
+
+### [Evidencias de historias clínicas](evidencias/Evidencias de historias clínicas.pdf)
+
+### [Evidencias de análisis laboratoriales](evidencias/Evidencias de análisis laboratoriales.pdf)
+
+### [Evidencias de biopsias](evidencias/Evidencias de biopsias.pdf)
+
+### [Evidencias de atención a pacientes](evidencias/Evidencias de atención a pacientes.pdf)
