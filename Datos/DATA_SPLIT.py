@@ -40,3 +40,7 @@ pd.to_pickle(ITA_8, "ITA_8.pkl")
 # ITA 9
 ITA_9 = data.query('ita <= 9')
 pd.to_pickle(ITA_9, "ITA_9.pkl")
+
+# ITA 10
+ITA_10 = data.query('ita <= 10')
+pd.to_pickle(ITA_10, "ITA_10.pkl")
