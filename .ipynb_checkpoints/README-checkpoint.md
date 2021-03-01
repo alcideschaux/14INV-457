@@ -15,3 +15,5 @@
 - **Investigador principal:** Prof. Dr. Alcides Chaux (alcideschaux@uninorte.edu.py)
 - **Investigador asociado:** Dr. Roger Sordé Massip
 - **Asistente de investigación:** Bioq. Cynthia A. Martínez
+
+**Fecha de última actualización:** 1 de marzo de 2021

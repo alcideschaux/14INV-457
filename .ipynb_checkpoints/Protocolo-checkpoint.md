@@ -2,8 +2,6 @@
 ## Descripción
 Este documento describe el protocolo a seguir para la ejecución del "Programa de diagnóstico precoz del cáncer de próstata", gestionado por la Dirección de Investigación & Divulgación Científica de la Universidad del Norte. El Programa se ejecuta dentro del *Programa Paraguayo para el Desarrollo de la Ciencia y la Tecnología* (PROCIENCIA), Proyecto 14-INV-457, con fondos adjudicados por el *Consejo Nacional de Ciencia y Tecnología* (CONACYT) de la República del Paraguay según Resolución Nº 437/2014.
 
-***
-
 ## Objetivos
 ### Objetivos principales
 Los objetivos principales de este proyecto pueden agruparse en 2 ejes:
@@ -17,8 +15,6 @@ Los objetivos específicos de este proyecto pueden agruparse en 3 ejes:
 - Detectar pacientes en riesgo de presentar lesiones neoplásicas de la próstata utilizando la determinación sérica del antígeno prostático específco (PSA).
 - Determinar si el paciente en riesgo presenta alguna lesión preneoplásica o neoplásica de la próstata mediante una biopsia con aguja fina guiada por ecografía.
 - Derivar a otros centros hospitalarios aquellos pacientes que requieran intervenciones terapéuticas, con todos sus datos clínicos, laboratoriales, y diagnósticos. 
-
-***
 
 ## Antecedentes
 El cáncer de próstata es el tumor más frecuente en los hombres, estando su mortalidad directamente relacionada con el estadio de diseminación tumoral en el que se encuentra al momento del diagnóstico. Pacientes con tumores diseminados tienen menos chances de sobrevida a mediano y largo plazo comparados con pacientes con tumores localizados. Por lo tanto, una de las mejores estrategias para disminuir la mortalidad por cáncer de próstata es detectar precozmente las lesiones prostáticas, cuando aún no se han manifestado clínicamente. Eso plantea el problema de cómo detectar estas lesiones precoces, considerando que la próstata no es clínicamente accesible de manera directa.
@@ -35,8 +31,6 @@ Con el fin de detectar precozmente las lesiones neoplásicas de la próstata y c
 
 A su vez, este Programa ofrecerá a estos pacientes en riesgo la posibilidad de realizarse una biopsia con aguja fina de próstata y diagnóstico anatomopatológico, con el fin de determinar la presencia de lesiones neoplásicas prostáticas. Finalmente, ofrecerá guía para aquellos pacientes que requieran intervenciones quirúrgicas, derivándolos a otros centros hospitalarios de mayor complejidad, con todo su historial clínico, resultados laboratoriales, y diagnósticos anatomopatológicos.
 
-***
-
 ## Marco teórico
 En hombres el cáncer de próstata es el tumor maligno no dermatológico más frecuente y la segunda causa de muerte por cáncer después del cáncer de pulmón. La incidencia a nivel mundial varía considerablemente entre distintos países, probablemente debido a la variable adopción de campañas de diagnóstico precoz (1).
 
@@ -49,10 +43,6 @@ El cáncer de próstata es principalmente una enfermedad de hombres de más de 6
 La historia natural del cáncer de próstata es particularmente heterogénea, yendo desde tumores clínicamente silenciosos nunca destinados a afectar significativamente al paciente hasta tumores agresivos, metastásicos, que causan considerable morbilidad y matan al paciente. Al igual que con las tendencias de incidencia, existen variaciones significativas a nivel mundial en las tendencias de mortalidad causadas por el cáncer de próstata. Sin embargo, desde el uso de la determinación del PSA la mortalidad ha disminuido en los países desarrollados, probablemente como consecuencia del diagnóstico precoz de la enfermedad (3). La determinación del PSA como herramienta diagnóstica se ha asociado con cambios en el estadio clínico del tumor así como con una reducción en la mortalidad e incidencia de cáncer de próstata metastásico (4,5).
 
 Tomando en cuenta los datos presentados, la implementación de un “Programa de Diagnóstico Precoz del Cáncer de Próstata” es necesaria para intentar disminuir la incidencia y mortalidad del cáncer de próstata en la población paraguaya. A pesar de que la determinación del PSA para este fin ha sido controversial, actualmente no disponemos en nuestro país de un mejor método. Este Programa pretende iniciar una línea de investigación en cáncer de próstata, creando una base de datos y banco de tejidos que podrán ser utilizados para incrementar el conocimiento acerca de la enfermedad y buscar mejores opciones diagnósticas y terapéuticas para los pacientes con cáncer de próstata.
-
-
-
-***
 
 ## Plan de trabajo
 El tiempo de duración del Programa es de 12 meses, desde julio de 2015 a junio de 2016. A partir del inicio del Programa se procederá al desarrollo de todas las fases descritas a continuación, trabajando en el Policlínico y la DIDCI de la Universidad del Norte. Se espera reclutar 500 pacientes y medir el PSA en todos ellos. Se estima que 100 pacientes mostrarán PSA elevado, requiriéndose una biopsia de próstata para un mejor diagnóstico.
@@ -77,8 +67,6 @@ En la fase de análisis de datos se procederá a la creación de una base de dat
 ### Divulgación de resultados
 En la fase de divulgación de resultados se procederá a la redacción del informe de investigación, el que se utilizará para generar materiales informativos para la comunidad académica y el público en general. También se redactará al menos un artículo de investigación, el que será enviado para publicación en una revista científica.
 
-***
-
 ## Relevancia
 ### Relevancia social
 Este "Programa de Diagnóstico Precoz del Cáncer de Próstata" permitirá que pacientes de escasos recursos económicos puedan recibir un diagnóstico oportuno y gratuito, incluyendo desde la determinación del PSA sérico hasta el diagnóstico anatomopatológico de las biopsias de próstata, de considerarse necesario. Socialmente, este Programa permitirá a largo plazo la reducción de la mortalidad del cáncer de próstata al identificar lesiones neoplásicas incipientes, enfocándose en la población más desprotegida. Este Programa pretende además paliar el hecho de que no existen programas de diagnóstico precoz del cáncer de próstata ejecutados por entidades públicas. De esta manera, se obtendrá una mayor inclusión social de los pacientes en programas de prevención del cáncer.
@@ -89,8 +77,6 @@ Este "Programa de Diagnóstico Precoz del Cáncer de Próstata" permitirá el es
 ### Relevancia contemporánea
 Este "Programa de Diagnóstico Precoz del Cáncer de Próstata" presenta trascendencia contemporánea al enfocarse en la implementación de medidas de diagnóstico precoz del cáncer de próstata, el tumor maligno más frecuente en hombres. Al enfocarse en el diagnóstico precoz este Programa se alinea con la tendencia actual de poner el énfasis en una asistencia sanitaria comunitaria más costo-efectiva. El diagnóstico del cáncer de próstata en etapas precoces no sólo permitirá disminuir la mortalidad asociada con la diseminación del tumor sino también permitirá un mejor manejo de los recursos disponibles, al generar menos costos de asistencia sanitaria.
  
-***
-
 ## Estrategia de divulgación
 El "Programa de Diagnóstico Precoz del Cáncer de Próstata" permitirá evaluar independientemente los datos epidemiológicos acerca de la enfermedad proveídos por entidades gubernamentales y organizaciones internacionales. Mediante este Programa se generará información suficiente sobre una cohorte de 500 pacientes, cohorte que podrá ser seguida a mediano y largo plazo, con lo que se podrán obtener datos más precisos acerca de las características de la enfermedad en la población paraguaya. También permitirá crear conciencia a nivel social de la importancia de la detección precoz de las lesiones neoplásicas de próstata para evitar la aparición de lesiones más avanzadas y clínicamente agresivas.
 
@@ -99,8 +85,6 @@ Mediante el "Programa de Diagnóstico Precoz del Cáncer de Próstata" los pacie
 
 ### Plan de divulgación de resultados a la sociedad
 Los resultados del "Programa de Diagnóstico Precoz del Cáncer de Próstata" serán divulgados mediante canales académicos y no académicos. En el ámbito académico, los resultados se divulgarán mediante Congresos y Simposios, ya sea organizados por la Universidad del Norte u otras instituciones académicas, y el reporte de investigación final será publicado en revistas especializadas. En el ámbito no académico, estos resultados se divulgarán al público en general mediante entrevistas radiales y televisivas, además de medios impresos y digitales, y redes sociales.
-
-***
 
 ## Referencias
 1. Howlader N, Noone A, Krapcho M, et al. SEER Cancer Statistics Review, 1975-2012. 2015. http://seer.cancer.gov/csr/1975\_2012/. Accessed May 4, 2015.
